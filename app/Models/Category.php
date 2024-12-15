@@ -9,12 +9,19 @@ class Category extends Model
 {
     use HasFactory;
 
+    // Define the table associated with the Category model (optional if it's default)
+    protected $table = 'categories';
+
+    // Define the fillable properties for mass assignment
     protected $fillable = [
-        'name'
+        'name',       
+        'slug',       
+        'description',
+        'image'
     ];
 
-    public function articles()
+    public function galleries()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Gallery::class);  
     }
 }
